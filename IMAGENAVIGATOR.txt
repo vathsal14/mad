@@ -1,0 +1,204 @@
+/////////IMAGENAVIGATOR///////
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/displaybtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="92dp"
+        android:text="Display"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="165dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img1" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="218dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img2" />
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="172dp"
+        android:layout_height="143dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="216dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img3" />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="159dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img4" />
+
+    <ImageView
+        android:id="@+id/img5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/img5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+////////////XML2////////////////
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <!-- ImageView to display the selected image -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/img1" />
+
+    <!-- TextView to display the greeting message -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Hello from the first activity!" />
+
+    <!-- TextView to display the description -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Description will be displayed here." />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+///////////////KT1///////////////////////////////////////////////////////////
+package com.example.a0ximagenavigator
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var desc:String;
+    private lateinit var image:ImageView;
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val img1 = findViewById<ImageView>(R.id.img1);
+        val img2 = findViewById<ImageView>(R.id.img2);
+        val img3 = findViewById<ImageView>(R.id.img3);
+        val img4 = findViewById<ImageView>(R.id.img4);
+        val img5 = findViewById<ImageView>(R.id.img5);
+        val displaybtn=findViewById<Button>(R.id.displaybtn)
+        img1.setOnClickListener{
+            image=img1;
+             desc = "Jesko Absolut, a low-drag variant of the 1,578bhp Jesko. The standard car is far from sluggish, but the Swedish brand's engineers have spent a significant amount of time making painstaking adjustments to further improve the car’s drag coefficient and power output. "
+        }
+        img2.setOnClickListener {
+            image=img2;
+            desc=" Bugatti's 8.0-litre W16 engine was tuned to create 1,578bhp - 99bhp more than the standard Chiron. It also gained extra cooling for its engine and gearbox, along with a host of software changes. Aerodynamic upgrades were just as critical to its high-speed run, too, most notably a 'Longtail' rear end that added 25cm of bodywork to smooth its airflow."
+        }
+        img3.setOnClickListener {
+            image=img3;
+            desc=" Tuatara hypercar's alleged 316mph high-speed run was called into question. Video footage of the Nevada highway attempt was claimed to show the car never went as fast as claimed."
+        }
+        img4.setOnClickListener {
+            image=img4;
+            desc="Hennessey Venom F5 hitting 271.6mph at the Johnny Bohmer Proving Grounds in Florida. It should come as no surprise, given that the old Venom had just 1,244bhp, while the newcomer packs a massive 1,817bhp from its twin-turbo V8. It’s clear Hennessey is aiming to reach 311mph when the car is fully developed."
+        }
+        img5.setOnClickListener {
+            image=img5;
+            desc="The Rimac Nevera is the fifth-fastest car in the world, and also has the distinction of being the world's fastest electric hypercar. Such is the ferocity of the EV power wars, it seems like only a matter of time until an EV takes the top spot outright."
+        }
+        displaybtn.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("message", "Yoo Bruv! Its working!")
+            intent.putExtra("description",desc)
+            intent.putExtra("imgresid",when(image){
+                img1 -> R.drawable.img1
+                img2 -> R.drawable.img2
+                img3 -> R.drawable.img3
+                img4 -> R.drawable.img4
+                img5 -> R.drawable.img5
+                else -> 0
+            })
+            startActivity(intent)
+
+        }
+
+    }
+}
+//////////////////////////KT2/////////////////////////
+// HomeActivity.kt
+package com.example.a0ximagenavigator
+
+import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class HomeActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+
+        val message = intent.getStringExtra("message")
+        val imageResourceID = intent.getIntExtra("imgresid", 0)
+        val description = intent.getStringExtra("description")
+
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val textView = findViewById<TextView>(R.id.textView)
+        val descriptionTextView = findViewById<TextView>(R.id.descriptionTextView)
+imageView.setImageResource(imageResourceID)
+
+
+        textView.text = message
+        descriptionTextView.text = description
+    }
+}
