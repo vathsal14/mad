@@ -1,0 +1,64 @@
+class Comp {
+	var name: String = ""
+		get() = field	
+		set(res) {		 
+			field = res
+		}
+}
+class Pomp{
+    var b:Int=1
+    get() = field	
+		set(res) {		 
+			field = res
+		}
+}
+fun main(args: Array<String>) {
+	val c = Comp()
+    val b=Pomp()
+	c.name = "Unknown"
+	println(c.name)		 
+}
+class Comp{
+    var name:String="Default"
+    get()=field
+    set(res){
+        field=res
+}
+}
+class Pomp{
+    var age:Int=1
+    get()=field
+    set(res){
+        field=res
+}
+}
+
+fun main(t:Array<String>){
+    val a=Comp()
+    val b=Pomp()
+    a.name="Unknown"
+    b.age=100
+    println(a.name+" "+b.age)
+}
+class Comp{
+    var name:String="Default"
+    get()=field
+    set(res){
+        field=res
+}
+}
+class Pomp{
+    var age:Int=1
+    get()=field
+    set(res){
+        field=res
+}
+}
+​
+fun main(t:Array<String>){
+    val a=Comp()
+    val b=Pomp()
+    a.name="Unknown"
+    b.age=100
+    println(a.name+" "+b.age)
+}

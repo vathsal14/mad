@@ -1,0 +1,56 @@
+
+
+import kotlin.math.PI
+import kotlin.math.sqrt
+
+fun main() {
+   val squareCabin = SquareCabin(10.0)
+   val roundHut = RoundHut(15.0)
+   val roundTower = RoundTower(12.0)
+
+   with(squareCabin) {
+       println("\nSquare Cabin\n============")
+       println("Capacity: ${capacity}")
+       println("Floor area: ${floorArea()}")
+   }
+
+   with(roundHut) {
+       println("\nRound Hut\n=========")
+       println("Capacity: ${capacity}")
+       println("Floor area: ${floorArea()}")
+   }
+
+   with(roundTower) {
+       println("\nRound Tower\n==========")
+       println("Capacity: ${capacity}")
+       println("Floor area: ${floorArea()}")
+   }
+}
+
+abstract class Dwelling() {
+   abstract val capacity: Int
+   abstract fun floorArea(): Double
+   }
+
+class SquareCabin( val length: Double) : Dwelling() {
+   override val capacity = 6
+   override fun floorArea(): Double {
+       return length * length
+   }
+
+}
+
+open class RoundHut(val radius: Double) : Dwelling() {
+   override val capacity = 4
+   override fun floorArea(): Double {
+       return PI * radius * radius
+   }
+}
+class RoundTower(
+    radius: Double,
+       val floors: Int = 2) : RoundHut(radius) {
+   override val capacity = floors * 4
+   override fun floorArea(): Double {
+       return super.floorArea() * floors
+   }
+}
